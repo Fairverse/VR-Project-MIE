@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public int rotateSpeed;
+
     public int movementSpeed;
+    public Transform player;
 
     Animator playerAnimator;
 
@@ -47,9 +50,11 @@ public class Movement : MonoBehaviour
             playerAnimator.SetBool("WalkingBack", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-           
+        if (Input.GetKey(KeyCode.A))
+        {   
+            Quaternion currentRotation = player.rotation;
+            Quaternion wantedRotation = Quaternion.Euler(0, -90, 0);
+            player.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * rotateSpeed);
         }
     }
     
