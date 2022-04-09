@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public int rotateSpeed;
+    public float turnSpeed;
+    float rotation;
 
     public int movementSpeed;
     public Transform player;
@@ -51,17 +52,15 @@ public class Movement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.A))
-        {   
-            Quaternion currentRotation = player.rotation;
-            Quaternion wantedRotation = Quaternion.Euler(0, -90, 0);
-            player.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * rotateSpeed);
+        {
+            rotation = Input.GetAxis("Horizontal") * turnSpeed;
+            player.Rotate(transform.up, rotation);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            Quaternion currentRotation = player.rotation;
-            Quaternion wantedRotation = Quaternion.Euler(0, 90, 0);
-            player.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * rotateSpeed);
+            rotation = Input.GetAxis("Horizontal") * turnSpeed;
+            player.Rotate(transform.up, rotation);
         }
     }
     
