@@ -56,10 +56,17 @@ public class Movement : MonoBehaviour
             Quaternion wantedRotation = Quaternion.Euler(0, -90, 0);
             player.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * rotateSpeed);
         }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            Quaternion currentRotation = player.rotation;
+            Quaternion wantedRotation = Quaternion.Euler(0, 90, 0);
+            player.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * rotateSpeed);
+        }
     }
     
     public void Move(float movementSpeed)
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        player.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
 }
