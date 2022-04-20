@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject character;
+
     public GameObject menuPanel;
 
     // Start is called before the first frame update
@@ -30,5 +32,10 @@ public class GameManager : MonoBehaviour
     public void OpenMenuPanel()
     {
         menuPanel.SetActive(true);
+    }
+
+    public void SetCharacter()
+    {
+        Debug.Log("char");
     }
 }
