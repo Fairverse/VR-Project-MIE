@@ -37,10 +37,10 @@ public class Movement : MonoBehaviour
         
 
         //playerAnimator = player.GetComponent<Animator>();   
-        actions.Add("forward", Forward);
-        actions.Add("back", Back);
-        actions.Add("right", Right);
-        actions.Add("left", Left);
+        actions.Add("marsh", Forward);
+        actions.Add("dön", Back);
+        actions.Add("saw", Right);
+        actions.Add("sol", Left);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -128,7 +128,7 @@ public class Movement : MonoBehaviour
 
     public void Back()
     {
-        StartCoroutine(MoveBack());
+        _targetRot *= Quaternion.AngleAxis(180, Vector3.up);
     }
 
     public void Right()
