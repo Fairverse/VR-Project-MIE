@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
         actions.Add("dön", Back);
         actions.Add("saw", Right);
         actions.Add("sol", Left);
+        actions.Add("hey", Wave);
 
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -59,6 +60,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager.instance.coinCount = PlayerPrefs.GetInt("coinCount");
+
         player.transform.rotation = Quaternion.Lerp(player.transform.rotation, _targetRot, _rotateSpeed * Time.deltaTime);
 
         if (isMovingForward)
@@ -142,5 +145,14 @@ public class Movement : MonoBehaviour
        // _isForward = !_isForward;
 
         _targetRot *= Quaternion.AngleAxis(-90, Vector3.up);
+    }
+
+    public void Wave()
+    {
+        player.GetComponent<Animator>().SetTrigger("Waving");
+
+        GameManager.instance.coinCount++;
+
+        PlayerPrefs.SetInt("coinCount", GameManager.instance.coinCount);
     }
 }

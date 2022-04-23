@@ -5,9 +5,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public int coinCount;
+
     public GameObject character;
 
     public GameObject menuPanel;
+
+    [Header("Texts")]
+
+    public Text coinText;
+
+    #region Singleton
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +33,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        coinText.text = coinCount.ToString();
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             OpenMenuPanel();
