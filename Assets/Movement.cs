@@ -42,7 +42,8 @@ public class Movement : MonoBehaviour
         actions.Add("saw", Right);
         actions.Add("sol", Left);
         actions.Add("hey", Wave);
-
+        actions.Add("menu", GameManager.instance.OpenMenuPanel);
+        
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
@@ -84,17 +85,15 @@ public class Movement : MonoBehaviour
             StartCoroutine(MoveBack());
         }
 
-        /*if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A))
         {
-            rotation = Input.GetAxis("Horizontal") * turnSpeed;
-            player.Rotate(transform.up, -90);
+            Left();
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
-            rotation = Input.GetAxis("Horizontal") * turnSpeed;
-            player.Rotate(transform.up, 90);
-        }*/
+            Right();
+        }
     }
     
     public void Move(float movementSpeed)
@@ -155,4 +154,5 @@ public class Movement : MonoBehaviour
 
         PlayerPrefs.SetInt("coinCount", GameManager.instance.coinCount);
     }
+
 }

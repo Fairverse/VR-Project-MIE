@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public Text coinText;
 
+    bool isMenuActive = false;
+
     #region Singleton
     public static GameManager instance;
 
@@ -48,7 +50,8 @@ public class GameManager : MonoBehaviour
 
     public void OpenMenuPanel()
     {
-        menuPanel.SetActive(true);
+        menuPanel.SetActive(isMenuActive);
+        isMenuActive = !isMenuActive;
     }
 
     public void SetCharacter()
