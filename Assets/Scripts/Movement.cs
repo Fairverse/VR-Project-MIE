@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
         actions.Add("sol", Left);
         actions.Add("hey", Wave);
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
+        actions.Add("dance", Dance);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -102,10 +103,10 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
-            Salsa();
+            Dance();
         }
 
-        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa"))
+        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HipHop"))
         {
             GameManager.instance.vcam2.Priority = 11;
         }
@@ -173,9 +174,25 @@ public class Movement : MonoBehaviour
         IncreaseCoin();
     }
 
-    public void Salsa()
+    public void Dance()
     {
-        player.GetComponent<Animator>().SetTrigger("Salsa");
+        int danceNum = UnityEngine.Random.Range(0, 3);
+        //Debug.Log(danceNum);
+
+        if (danceNum == 0)
+        {
+            player.GetComponent<Animator>().SetTrigger("Salsa");
+        }
+        
+        if (danceNum == 1)
+        {
+            player.GetComponent<Animator>().SetTrigger("Gangnam");
+        }
+
+        if(danceNum == 2)
+        {
+            player.GetComponent<Animator>().SetTrigger("HipHop");
+        }
 
         IncreaseCoin();
     }
@@ -186,5 +203,4 @@ public class Movement : MonoBehaviour
 
         PlayerPrefs.SetInt("coinCount", GameManager.instance.coinCount);
     }
-
 }
