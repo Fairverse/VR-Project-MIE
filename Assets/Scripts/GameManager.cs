@@ -12,15 +12,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject menuPanel;
 
+    [Header("Scripts")]
+
+    public UI UI;
+
     [Header("Cameras")]
 
     public CinemachineVirtualCamera vcam2;
-
-    [Header("Texts")]
-
-    public Text coinText;
-
-    bool isMenuActive = false;
 
     #region Singleton
     public static GameManager instance;
@@ -40,8 +38,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinText.text = coinCount.ToString();
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             OpenMenuPanel();
@@ -55,12 +51,14 @@ public class GameManager : MonoBehaviour
 
     public void OpenMenuPanel()
     {
-        menuPanel.SetActive(isMenuActive);
-        isMenuActive = !isMenuActive;
+        menuPanel.SetActive(UI.isMenuActive);
+        UI.isMenuActive = !UI.isMenuActive;
     }
 
     public void SetCharacter()
     {
         Debug.Log("char");
     }
+
+
 }
