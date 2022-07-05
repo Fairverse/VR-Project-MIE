@@ -103,8 +103,16 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
             Salsa();
+        }
 
+        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa"))
+        {
             GameManager.instance.vcam2.Priority = 11;
+        }
+
+        else
+        {
+            GameManager.instance.vcam2.Priority = 9;
         }
     }
     

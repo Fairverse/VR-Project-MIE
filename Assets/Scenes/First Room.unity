@@ -12638,6 +12638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMenuActive: 0
+  menuPanel: {fileID: 427986765}
   coinText: {fileID: 29253134}
 --- !u!1 &938270442
 GameObject:
@@ -25484,8 +25485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCount: 0
   character: {fileID: 0}
-  menuPanel: {fileID: 427986765}
-  UI: {fileID: 0}
+  UI: {fileID: 936803196}
   vcam2: {fileID: 1716469763}
 --- !u!4 &2015173354
 Transform:

@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject character;
 
-    public GameObject menuPanel;
-
     [Header("Scripts")]
 
     public UI UI;
@@ -46,12 +44,12 @@ public class GameManager : MonoBehaviour
 
     public void PressButton()
     {
-        menuPanel.SetActive(false);
+        UI.menuPanel.SetActive(false);
     }
 
     public void OpenMenuPanel()
     {
-        menuPanel.SetActive(UI.isMenuActive);
+        UI.menuPanel.SetActive(UI.isMenuActive);
         UI.isMenuActive = !UI.isMenuActive;
     }
 

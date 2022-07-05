@@ -7,6 +7,10 @@ public class UI : MonoBehaviour
 {
     public bool isMenuActive = false;
 
+    [Header("Panels")]
+
+    public GameObject menuPanel;
+
     [Header("Texts")]
 
     public Text coinText;
