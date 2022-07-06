@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public int coinCount;
 
-    public GameObject character;
-
     [Header("Scripts")]
 
     public UI UI;

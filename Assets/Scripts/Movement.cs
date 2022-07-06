@@ -27,6 +27,14 @@ public class Movement : MonoBehaviour
     public int movementSpeed;
     public Transform player;
 
+    #region Singleton
+    public static Movement instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
