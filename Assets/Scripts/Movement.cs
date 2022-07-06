@@ -156,14 +156,10 @@ public class Movement : MonoBehaviour
 
     public void Right()
     {
-       // _isForward = !_isForward;
-
         _targetRot *= Quaternion.AngleAxis(90, Vector3.up);
     }
     public void Left()
     {
-       // _isForward = !_isForward;
-
         _targetRot *= Quaternion.AngleAxis(-90, Vector3.up);
     }
 
