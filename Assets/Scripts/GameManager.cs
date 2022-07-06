@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Cameras")]
 
+    public CinemachineVirtualCamera vcam1;
     public CinemachineVirtualCamera vcam2;
 
     #region Singleton

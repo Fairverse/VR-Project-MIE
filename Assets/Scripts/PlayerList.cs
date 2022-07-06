@@ -21,12 +21,14 @@ public class PlayerList : MonoBehaviour
     public void SetCharacter1()
     {
         Movement.instance.player = CharacterList[0].transform;
+        GameManager.instance.vcam1.Follow = CharacterList[0].transform;
         GameManager.instance.vcam2.Follow = CharacterList[0].transform;
     }
 
     public void SetCharacter2()
     {
         Movement.instance.player = CharacterList[1].transform;
+        GameManager.instance.vcam1.Follow = CharacterList[1].transform;
         GameManager.instance.vcam2.Follow = CharacterList[1].transform;
     }
 }
