@@ -3,7 +3,17 @@ guid: 99899a0b55dd0ff4bbcd4abc162c4adc
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "a\u011Fa\xE7 g\xF6vdesi rengi"
+    second: {fileID: 2100000, guid: f2405aa3c46164445993a6cd5003120e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yaprak rengi
+    second: {fileID: 2100000, guid: a9426e397035324428cf86e2902836c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
