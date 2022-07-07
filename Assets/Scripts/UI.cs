@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     [Header("Panels")]
 
     public GameObject menuPanel;
+    public GameObject ccPanel;
 
     [Header("Texts")]
 
