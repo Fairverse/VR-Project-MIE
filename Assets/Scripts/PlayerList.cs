@@ -23,7 +23,9 @@ public class PlayerList : MonoBehaviour
         Movement.instance.player = CharacterList[0].transform;
         GameManager.instance.vcam1.Follow = CharacterList[0].transform;
         GameManager.instance.vcam2.Follow = CharacterList[0].transform;
+        CharacterList[0].SetActive(true);
         GameManager.instance.UI.ccPanel.SetActive(false);
+        GameManager.instance.Movement.enabled = true;
     }
 
     public void SetCharacter2()
@@ -31,6 +33,8 @@ public class PlayerList : MonoBehaviour
         Movement.instance.player = CharacterList[1].transform;
         GameManager.instance.vcam1.Follow = CharacterList[1].transform;
         GameManager.instance.vcam2.Follow = CharacterList[1].transform;
+        CharacterList[1].SetActive(true);
         GameManager.instance.UI.ccPanel.SetActive(false);
+        GameManager.instance.Movement.enabled = true;
     }
 }

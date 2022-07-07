@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Scripts")]
 
     public UI UI;
+    public Movement Movement;
 
     [Header("Cameras")]
 

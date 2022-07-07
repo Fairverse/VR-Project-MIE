@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -34,7 +33,6 @@ public class DoorTrigger : MonoBehaviour
         {
             Debug.Log("çýktý");
             door.GetComponent<Animator>().SetBool("DoorOpen", false);
-            SceneManager.LoadScene(1);
         }
     }
 
