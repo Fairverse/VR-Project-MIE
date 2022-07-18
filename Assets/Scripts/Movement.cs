@@ -123,7 +123,6 @@ public class Movement : MonoBehaviour
         else if (GameManager.instance.vcam2.Priority != 9)
         {
             GameManager.instance.vcam2.Priority = 9;
-            Debug.Log("pause");
             GameManager.instance.GetComponent<AudioSource>().Stop();
         }
     }
