@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         {
             OpenMenuPanel();
         }
+        Debug.Log(PlayerPrefs.GetString(PlayerList.instance.chosenChar));
     }
 
     public void PressButton()

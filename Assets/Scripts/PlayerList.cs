@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PlayerList : MonoBehaviour
 {
+    public string chosenChar;
     public List<GameObject> CharacterList = new List<GameObject>();
 
+    #region Singleton
+    public static PlayerList instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +35,9 @@ public class PlayerList : MonoBehaviour
         CharacterList[0].SetActive(true);
         GameManager.instance.UI.ccPanel.SetActive(false);
         GameManager.instance.Movement.enabled = true;
+        
+        PlayerPrefs.SetString(chosenChar, "Gozde");
+
     }
 
     public void SetCharacter2()
@@ -36,5 +48,8 @@ public class PlayerList : MonoBehaviour
         CharacterList[1].SetActive(true);
         GameManager.instance.UI.ccPanel.SetActive(false);
         GameManager.instance.Movement.enabled = true;
+        
+        PlayerPrefs.SetString(chosenChar, "NPC");
+
     }
 }
