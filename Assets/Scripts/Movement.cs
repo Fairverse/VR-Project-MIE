@@ -112,6 +112,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
             Dance();
+            GameManager.instance.GetComponent<AudioSource>().Play();
         }
 
         if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HipHop"))
@@ -119,9 +120,11 @@ public class Movement : MonoBehaviour
             GameManager.instance.vcam2.Priority = 11;
         }
 
-        else
+        else if (GameManager.instance.vcam2.Priority != 9)
         {
             GameManager.instance.vcam2.Priority = 9;
+            Debug.Log("pause");
+            GameManager.instance.GetComponent<AudioSource>().Stop();
         }
     }
     
