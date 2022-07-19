@@ -7,6 +7,8 @@ using UnityEngine.Windows.Speech;
 
 public class Movement : MonoBehaviour
 {
+    public int danceNum = 0;
+
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
@@ -88,7 +90,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.W))
         {
-            StartCoroutine(MoveForward());
+            if(!isMovingForward)
+                StartCoroutine(MoveForward());
         }
 
         if (Input.GetKeyUp(KeyCode.S))
@@ -118,7 +121,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            StartCoroutine(RunForward());
+            if (!isMovingForward)
+                StartCoroutine(RunForward());
         }
 
         if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandalý") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbastý"))
@@ -207,7 +211,8 @@ public class Movement : MonoBehaviour
 
     public void Dance()
     {
-        int danceNum = UnityEngine.Random.Range(0, 3);
+        //int danceNum = UnityEngine.Random.Range(0, 3);
+        //int danceNum = 0;
 
         if (danceNum == 0)
         {
@@ -215,22 +220,25 @@ public class Movement : MonoBehaviour
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.kolbasti;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
+            danceNum++;
         }
         
-        if (danceNum == 1)
+        else if (danceNum == 1)
         {
             player.GetComponent<Animator>().SetTrigger("Gangnam");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.gangnam;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
+            danceNum++;
         }
 
-        if(danceNum == 2)
+        else if(danceNum == 2)
         {
             player.GetComponent<Animator>().SetTrigger("Harmandalý");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.harmandali;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
+            danceNum = 0;
         }
 
         IncreaseCoin();

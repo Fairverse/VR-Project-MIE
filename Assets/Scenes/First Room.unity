@@ -24123,6 +24123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de966e2c654d577449a0869cdfdc79df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  danceNum: 0
   _rotateSpeed: 5
   isRunnin: 0
   isMovingForward: 0
