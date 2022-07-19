@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float _rotateSpeed = 5f;
 
+    public bool isRunnin;
     public bool isMovingForward;
     public bool isMovingBack;
 
@@ -52,6 +53,7 @@ public class Movement : MonoBehaviour
         actions.Add("hey", Wave);
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
         actions.Add("dance", Dance);
+        actions.Add("kosh", Run);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -112,15 +114,15 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
             Dance();
-            GameManager.instance.GetComponent<AudioSource>().Play();
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-
+            StartCoroutine(RunForward());
         }
 
-        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HipHop"))
+        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandalý") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbastý"))
         {
             GameManager.instance.vcam2.Priority = 11;
         }
@@ -128,7 +130,7 @@ public class Movement : MonoBehaviour
         else if (GameManager.instance.vcam2.Priority != 9)
         {
             GameManager.instance.vcam2.Priority = 9;
-            GameManager.instance.GetComponent<AudioSource>().Stop();
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().Stop();
         }
     }
     
@@ -159,6 +161,20 @@ public class Movement : MonoBehaviour
         isMovingBack = false;
     }
 
+    public IEnumerator RunForward()
+    {
+        isMovingForward = true;
+        player.GetComponent<Animator>().SetBool("Running", true);
+        movementSpeed = 3;
+
+        yield return new WaitForSeconds(2);
+
+        player.GetComponent<Animator>().SetBool("Running", false);
+        movementSpeed = 1;
+
+        isMovingForward = false;
+    }
+
     public void Forward()
     {
         StartCoroutine(MoveForward());
@@ -178,6 +194,11 @@ public class Movement : MonoBehaviour
         _targetRot *= Quaternion.AngleAxis(-90, Vector3.up);
     }
 
+    public void Run()
+    {
+        StartCoroutine(RunForward());
+    }
+
     public void Wave()
     {
         player.GetComponent<Animator>().SetTrigger("Waving");
@@ -192,7 +213,7 @@ public class Movement : MonoBehaviour
 
         if (danceNum == 0)
         {
-            player.GetComponent<Animator>().SetTrigger("Salsa");
+            player.GetComponent<Animator>().SetTrigger("Kolbastý");
         }
         
         if (danceNum == 1)
@@ -202,7 +223,7 @@ public class Movement : MonoBehaviour
 
         if(danceNum == 2)
         {
-            player.GetComponent<Animator>().SetTrigger("HipHop");
+            player.GetComponent<Animator>().SetTrigger("Harmandalý");
         }
 
         IncreaseCoin();
