@@ -15343,6 +15343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f83317e085ff1a41bc81dcdf134e4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gangnam: {fileID: 8300000, guid: 96af0057acadeb046b8cae9f80cdc7d6, type: 3}
+  kolbasti: {fileID: 8300000, guid: 26aaf3fe95e81d84ebf43179ff4a8903, type: 3}
+  harmandali: {fileID: 8300000, guid: 1a70e7211082cf14b8a1b485b04be20a, type: 3}
 --- !u!4 &1195860851
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioClip gangnam;
+    public AudioClip kolbasti;
+    public AudioClip harmandali;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -114,7 +114,6 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
             Dance();
-            GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -209,21 +208,29 @@ public class Movement : MonoBehaviour
     public void Dance()
     {
         int danceNum = UnityEngine.Random.Range(0, 3);
-        //Debug.Log(danceNum);
 
         if (danceNum == 0)
         {
             player.GetComponent<Animator>().SetTrigger("Kolbastý");
+
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.kolbasti;
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
         }
         
         if (danceNum == 1)
         {
             player.GetComponent<Animator>().SetTrigger("Gangnam");
+
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.gangnam;
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
         }
 
         if(danceNum == 2)
         {
             player.GetComponent<Animator>().SetTrigger("Harmandalý");
+
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.harmandali;
+            GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
         }
 
         IncreaseCoin();
