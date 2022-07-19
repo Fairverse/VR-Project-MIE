@@ -115,6 +115,11 @@ public class Movement : MonoBehaviour
             GameManager.instance.GetComponent<AudioSource>().Play();
         }
 
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+
+        }
+
         if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Salsa") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("HipHop"))
         {
             GameManager.instance.vcam2.Priority = 11;
