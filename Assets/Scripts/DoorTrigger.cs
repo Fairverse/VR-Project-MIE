@@ -22,8 +22,8 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("girdi");
-            door.GetComponent<Animator>().SetBool("DoorOpen", true);
+            //Debug.Log("girdi");
+            //door.GetComponent<Animator>().SetBool("DoorOpen", true);
         }
     }
 
@@ -31,8 +31,8 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("çýktý");
-            door.GetComponent<Animator>().SetBool("DoorOpen", false);
+            //Debug.Log("çýktý");
+            //door.GetComponent<Animator>().SetBool("DoorOpen", false);
         }
     }
 

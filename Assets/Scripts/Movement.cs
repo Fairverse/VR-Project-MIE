@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float _rotateSpeed = 5f;
 
-    public bool isRunnin;
+    public bool isDance;
     public bool isMovingForward;
     public bool isMovingBack;
 
@@ -116,7 +116,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
-            Dance();
+            if (!isDance)
+                Dance();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -134,6 +135,7 @@ public class Movement : MonoBehaviour
         {
             GameManager.instance.vcam2.Priority = 9;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Stop();
+            isDance = false;
         }
     }
     
@@ -211,6 +213,7 @@ public class Movement : MonoBehaviour
 
     public void Dance()
     {
+        isDance = true;
         //int danceNum = UnityEngine.Random.Range(0, 3);
         //int danceNum = 0;
 

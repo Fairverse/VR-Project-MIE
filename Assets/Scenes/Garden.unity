@@ -4751,7 +4751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &576775093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25054,7 +25054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danceNum: 0
   _rotateSpeed: 5
-  isRunnin: 0
+  isDance: 0
   isMovingForward: 0
   isMovingBack: 0
   turnSpeed: 50

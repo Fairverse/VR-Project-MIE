@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+    [Header("Booleans")]
+
     public bool isMenuActive = false;
 
     [Header("Panels")]
 
     public GameObject menuPanel;
     public GameObject ccPanel;
+    public GameObject interactionPanel;
 
     [Header("Texts")]
 
