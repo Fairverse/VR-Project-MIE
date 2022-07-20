@@ -28,19 +28,19 @@ public class User : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
-            Debug.Log("error: " + www.error);
+            printError(www.downloadHandler.text);
         }
         else
         {
-            Debug.Log("user: " + www.downloadHandler.data);
+            Debug.Log("user: " + www.downloadHandler.text);
         }
     }
 
     public void PutUser()
     {
-        string username = "Mr. Bülüç";
-        string mail = "hkcblc@gmail.com";
-        string password = "123456";
+        string username = "hkc";
+        string mail = "hkc@gmail.com";
+        string password = "123456789";
         string userData = username + "é" + mail + "é" + password;
         StartCoroutine(PutUserCoroutine(userData));
     }
@@ -53,15 +53,18 @@ public class User : MonoBehaviour
 
         if (www.isNetworkError || www.isHttpError)
         {
-            string text = www.downloadHandler.text;
-            Dictionary<string, string> json = JsonConvert.DeserializeObject<Dictionary<string, string>>(text);
-            Debug.Log("message: " + json["message"]);
-            Debug.Log("status: " + json["status"]);
+            printError(www.downloadHandler.text);
         }
         else
         {
             Debug.Log("Başarılı bir şekilde kullanıcı kayıt edildi");
         }
+    }
+
+    void printError(string text) {
+        Dictionary<string, string> json = JsonConvert.DeserializeObject<Dictionary<string, string>>(text);
+        Debug.Log("message: " + json["message"]);
+        Debug.Log("status: " + json["status"]);
     }
 
     // Update is called once per frame
