@@ -32,7 +32,16 @@ public class User : MonoBehaviour
         }
         else
         {
-            Debug.Log("user: " + www.downloadHandler.text);
+            string userStr = www.downloadHandler.text;
+            string[] userStrSplit = userStr.Split('é');
+            string username = userStrSplit[0];
+            mail = userStrSplit[1];
+            string id = userStrSplit[2];
+            Dictionary<string, string> user = new Dictionary<string, string>();
+            user.Add("username", username);
+            user.Add("mail", mail);
+            user.Add("id", id);
+            print("user: " + JsonConvert.SerializeObject(user));
         }
     }
 
