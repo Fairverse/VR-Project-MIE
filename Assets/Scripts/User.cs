@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
 public class User : MonoBehaviour
 {
     readonly string url = "http://localhost:8080/api/v1/user1";
+
+    public Text username;
+    public Text email;
+    public Text password;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +23,7 @@ public class User : MonoBehaviour
     public void GetUser()
     {
         StartCoroutine(GetUserCoroutine());
+        Debug.Log("bu da çalıştı");
     }
 
     IEnumerator GetUserCoroutine()
@@ -52,6 +59,8 @@ public class User : MonoBehaviour
         string password = "123456789";
         string userData = username + "é" + mail + "é" + password;
         StartCoroutine(PutUserCoroutine(userData));
+
+        Debug.Log("çalıştı");
     }
 
     IEnumerator PutUserCoroutine(string userData)
@@ -88,5 +97,10 @@ public class User : MonoBehaviour
         {
             PutUser();
         }
+
+        Debug.Log(username.text);
+        Debug.Log(email.text);
+        Debug.Log(password.text);
     }
+
 }

@@ -210,7 +210,7 @@ public class Movement : MonoBehaviour
     {
         player.GetComponent<Animator>().SetTrigger("Waving");
 
-        IncreaseCoin();
+        GameManager.instance.IncreaseCoin();
     }
 
     public void Dance()
@@ -246,13 +246,6 @@ public class Movement : MonoBehaviour
             danceNum = 0;
         }
 
-        IncreaseCoin();
-    }
-
-    public void IncreaseCoin()
-    {
-        GameManager.instance.coinCount++;
-
-        PlayerPrefs.SetInt("coinCount", GameManager.instance.coinCount);
+        GameManager.instance.IncreaseCoin();
     }
 }
