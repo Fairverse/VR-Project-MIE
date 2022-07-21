@@ -9,9 +9,9 @@ public class User : MonoBehaviour
 {
     readonly string url = "http://localhost:8080/api/v1/user1";
 
-    public Text username;
-    public Text email;
-    public Text password;
+    public Text usernameText;
+    public Text emailText;
+    public Text passwordText;
 
 
     // Start is called before the first frame update
@@ -54,13 +54,12 @@ public class User : MonoBehaviour
 
     public void PutUser()
     {
-        string username = "hkc";
-        string mail = "hkc@gmail.com";
-        string password = "123456789";
+        string username = usernameText.text;
+        string mail = emailText.text;
+        string password = passwordText.text;
         string userData = username + "é" + mail + "é" + password;
-        StartCoroutine(PutUserCoroutine(userData));
-
-        Debug.Log("çalıştı");
+        Debug.Log("userData: " + userData);
+        //StartCoroutine(PutUserCoroutine(userData));
     }
 
     IEnumerator PutUserCoroutine(string userData)
@@ -86,21 +85,5 @@ public class User : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GetUser();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            PutUser();
-        }
-
-        Debug.Log(username.text);
-        Debug.Log(email.text);
-        Debug.Log(password.text);
-    }
-
+    void Update(){}
 }
