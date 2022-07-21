@@ -193,11 +193,11 @@ public class Movement : MonoBehaviour
 
     public void Right()
     {
-        _targetRot *= Quaternion.AngleAxis(90, Vector3.up);
+        _targetRot *= Quaternion.AngleAxis(45, Vector3.up);
     }
     public void Left()
     {
-        _targetRot *= Quaternion.AngleAxis(-90, Vector3.up);
+        _targetRot *= Quaternion.AngleAxis(-45, Vector3.up);
     }
 
     public void Run()
