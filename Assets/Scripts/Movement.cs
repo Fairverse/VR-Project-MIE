@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float _rotateSpeed = 5f;
 
+    public bool canRun;
     public bool isDance;
     public bool isMovingForward;
     public bool isMovingBack;
@@ -201,7 +202,8 @@ public class Movement : MonoBehaviour
 
     public void Run()
     {
-        StartCoroutine(RunForward());
+        if(canRun)
+            StartCoroutine(RunForward());
     }
 
     public void Wave()

@@ -24181,6 +24181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   danceNum: 0
   _rotateSpeed: 5
+  canRun: 0
   isDance: 0
   isMovingForward: 0
   isMovingBack: 0

@@ -4439,6 +4439,7 @@ MonoBehaviour:
   isMenuActive: 0
   menuPanel: {fileID: 721460008}
   ccPanel: {fileID: 1901360778}
+  interactionPanel: {fileID: 0}
   coinText: {fileID: 1201685404}
 --- !u!114 &526133000
 MonoBehaviour:
