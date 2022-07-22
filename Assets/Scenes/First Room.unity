@@ -18690,12 +18690,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000015646219, y: 0.7001054, z: 0.031746797}
     m_Extent: {x: 0.08460209, y: 0.021012783, z: 0.06895414}
   m_DirtyAABB: 0
---- !u!1 &1546561587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6948483626007395035, guid: 5a20d64bd45d40e4c8e5887b8d9046d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 219300971653926292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1546561591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7720904410917347425, guid: 5a20d64bd45d40e4c8e5887b8d9046d2,
@@ -20694,7 +20688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e7a2212b758ca4b965f78773f65e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1546561587}
 --- !u!1 &1707751369
 GameObject:
   m_ObjectHideFlags: 0
@@ -21024,7 +21017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716469761}
   m_LocalRotation: {x: -0, y: -0, z: 2.664535e-15, w: 1}
-  m_LocalPosition: {x: -3.4, y: 1.9979999, z: -1.534}
+  m_LocalPosition: {x: -3.4, y: 1.8979999, z: -1.534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1929549405}
@@ -23020,8 +23013,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1929549405}
   - component: {fileID: 1929549408}
-  - component: {fileID: 1929549406}
   - component: {fileID: 1929549407}
+  - component: {fileID: 1929549406}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -23052,19 +23045,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929549404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 2, z: -2}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
+  Damping: {x: 0.1, y: 0.5, z: 0.3}
+  ShoulderOffset: {x: 0, y: 1.5, z: 0}
+  VerticalArmLength: 0.4
+  CameraSide: 1
+  CameraDistance: 2
+  CameraCollisionFilter:
+    serializedVersion: 2
+    m_Bits: 0
+  IgnoreTag: 
+  CameraRadius: 0.2
 --- !u!114 &1929549407
 MonoBehaviour:
   m_ObjectHideFlags: 3

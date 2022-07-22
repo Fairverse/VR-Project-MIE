@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
                 StartCoroutine(RunForward());
         }
 
-        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandalý") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbastý"))
+        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandali") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbasti"))
         {
             GameManager.instance.vcam2.Priority = 11;
         }
@@ -221,7 +221,7 @@ public class Movement : MonoBehaviour
 
         if (danceNum == 0)
         {
-            player.GetComponent<Animator>().SetTrigger("Kolbastý");
+            player.GetComponent<Animator>().SetTrigger("Kolbasti");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.kolbasti;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
@@ -239,7 +239,7 @@ public class Movement : MonoBehaviour
 
         else if(danceNum == 2)
         {
-            player.GetComponent<Animator>().SetTrigger("Harmandalý");
+            player.GetComponent<Animator>().SetTrigger("Harmandali");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.harmandali;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
