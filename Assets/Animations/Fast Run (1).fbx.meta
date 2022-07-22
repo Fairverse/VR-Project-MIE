@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea7f79e3d53c02845a8f9e0885b33380
+guid: 05012dda0df8e30479090cfd34d767e9
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -48,8 +48,8 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -526,13 +526,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Fast Run(Clone)
+    - name: Fast Run (1)(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig2:Hips
-      parentName: Fast Run(Clone)
+      parentName: Fast Run (1)(Clone)
       position: {x: 0.0008525714, y: 0.98167795, z: 0.007551062}
       rotation: {x: -0.08530711, y: 0.06517185, z: -0.0066561163, w: 0.99419874}
       scale: {x: 1, y: 1, z: 1}

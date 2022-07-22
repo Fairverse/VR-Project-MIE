@@ -91,7 +91,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.W))
         {
-            if(!isMovingForward)
+            if(!isMovingForward && !isDance)
                 StartCoroutine(MoveForward());
         }
 
@@ -117,13 +117,13 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Keypad0))
         {
-            if (!isDance)
+            if (!isDance && !isMovingForward)
                 Dance();
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            if (!isMovingForward)
+            if (!isMovingForward && !isDance)
                 StartCoroutine(RunForward());
         }
 
@@ -171,7 +171,7 @@ public class Movement : MonoBehaviour
     {
         isMovingForward = true;
         player.GetComponent<Animator>().SetBool("Running", true);
-        movementSpeed = 3;
+        movementSpeed = 5;
 
         yield return new WaitForSeconds(2);
 

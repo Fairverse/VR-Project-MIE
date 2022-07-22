@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SceneTrigger : MonoBehaviour
+public class TrampolineTrigger : MonoBehaviour
 {
+    public Transform trampolinePlace;
+
     public bool isPressE;
     public bool isAvaiableForInteraction;
 
@@ -17,7 +18,6 @@ public class SceneTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(isPressE);
         if (Input.GetKeyDown(KeyCode.E))
         {
             isPressE = true;
@@ -40,12 +40,10 @@ public class SceneTrigger : MonoBehaviour
 
         if (isPressE && isAvaiableForInteraction)
         {
-            if (SceneManager.GetActiveScene () == SceneManager.GetSceneByBuildIndex (0)) 
-                SceneManager.LoadScene(1);
-
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
-                SceneManager.LoadScene(0);
-
+            GameManager.instance.Movement.player.transform.position = trampolinePlace.position;
+            GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
+            GameManager.instance.Movement.player.transform.eulerAngles = new Vector3(0, -150, 0);
+            GameManager.instance.UI.interactionPanel.SetActive(false);
         }
     }
 
@@ -55,11 +53,12 @@ public class SceneTrigger : MonoBehaviour
         {
             isAvaiableForInteraction = true;
             GameManager.instance.UI.interactionPanel.SetActive(true);
-        }
+        }   
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && isAvaiableForInteraction)
+        if (other.CompareTag("Player") && !isAvaiableForInteraction)
         {
             isAvaiableForInteraction = false;
             GameManager.instance.UI.interactionPanel.SetActive(false);
