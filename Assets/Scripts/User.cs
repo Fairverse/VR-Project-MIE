@@ -23,15 +23,29 @@ public class User : MonoBehaviour
 
     public void GetUser()
     {
-        StartCoroutine(GetUserCoroutine());
-        Debug.Log("bu da çalıştı");
+        string email = emailText.text;
+        string password = passwordText.text;
+        
+        if (email == "" || password == "")
+        {
+            Debug.Log("Lütfen boş alan bırakmayınız");
+        }
+        else
+        {
+            if (emailValidation(email))
+            {
+                StartCoroutine(GetUserCoroutine(email, password));
+            }
+            else
+            {
+                Debug.Log("Lütfen geçerli bir email adresi giriniz");
+            }
+        }
     }
 
-    IEnumerator GetUserCoroutine()
+    IEnumerator GetUserCoroutine(string email, string password)
     {
-        string mail = "hkc@gmail.com";
-        string password = "123456789";
-        UnityWebRequest www = UnityWebRequest.Get(url + "?mail=" + mail + "&password=" + password);
+        UnityWebRequest www = UnityWebRequest.Get(url + "?email=" + email + "&password=" + password);
         yield return www.SendWebRequest();
 
         if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.
@@ -44,11 +58,11 @@ public class User : MonoBehaviour
             string userStr = www.downloadHandler.text;
             string[] userStrSplit = userStr.Split('é');
             string username = userStrSplit[0];
-            mail = userStrSplit[1];
+            email = userStrSplit[1];
             string id = userStrSplit[2];
             Dictionary<string, string> user = new Dictionary<string, string>();
             user.Add("username", username);
-            user.Add("mail", mail);
+            user.Add("mail", email);
             user.Add("id", id);
             print("user: " + JsonConvert.SerializeObject(user));
         }
