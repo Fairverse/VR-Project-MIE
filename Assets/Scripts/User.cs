@@ -34,7 +34,8 @@ public class User : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Get(url + "?mail=" + mail + "&password=" + password);
         yield return www.SendWebRequest();
 
-        if (www.isNetworkError || www.isHttpError)
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.
+        ProtocolError)
         {
             printError(www.downloadHandler.text);
         }
@@ -83,7 +84,7 @@ public class User : MonoBehaviour
 
         yield return www.SendWebRequest();
 
-        if (www.isNetworkError || www.isHttpError)
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
             printError(www.downloadHandler.text);
         }
