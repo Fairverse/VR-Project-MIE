@@ -50,12 +50,12 @@ public class Movement : MonoBehaviour
 
         //playerAnimator = player.GetComponent<Animator>();   
         actions.Add("marsh", Forward);
-        actions.Add("dön", Back);
+        actions.Add("done", Back);
         actions.Add("saw", Right);
         actions.Add("sol", Left);
         actions.Add("hey", Wave);
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
-        actions.Add("dance", Dance);
+        actions.Add("dounce", Dance);
         actions.Add("kosh", Run);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
@@ -202,8 +202,7 @@ public class Movement : MonoBehaviour
 
     public void Run()
     {
-        if(canRun)
-            StartCoroutine(RunForward());
+        StartCoroutine(RunForward());
     }
 
     public void Wave()
