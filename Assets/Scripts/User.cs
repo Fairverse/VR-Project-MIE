@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 public class User : MonoBehaviour
 {
-    readonly string url = "http://localhost:8080/api/v1/user1";
+    readonly string url = "http://localhost:8080/api/v1/registration";
 
     public Text usernameText;
     public Text emailText;
@@ -55,11 +56,25 @@ public class User : MonoBehaviour
     public void PutUser()
     {
         string username = usernameText.text;
-        string mail = emailText.text;
+        string email = emailText.text;
         string password = passwordText.text;
-        string userData = username + "é" + mail + "é" + password;
-        Debug.Log("userData: " + userData);
-        //StartCoroutine(PutUserCoroutine(userData));
+        if (username == "" || email == "" || password == "")
+        {
+            Debug.Log("Lütfen boş alan bırakmayınız");
+        }
+        else
+        {
+            if (emailValidation(email))
+            {
+                string userData = username + "é" + email + "é" + password;
+                StartCoroutine(PutUserCoroutine(userData));
+            }
+            else
+            {
+                Debug.Log("Lütfen geçerli bir email adresi giriniz");
+            }
+        }
+        
     }
 
     IEnumerator PutUserCoroutine(string userData)
@@ -82,6 +97,12 @@ public class User : MonoBehaviour
         Dictionary<string, string> json = JsonConvert.DeserializeObject<Dictionary<string, string>>(text);
         Debug.Log("message: " + json["message"]);
         Debug.Log("status: " + json["status"]);
+    }
+
+    bool emailValidation(string email) {
+        string pattern = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
+        return Regex.IsMatch(email, pattern);
     }
 
     // Update is called once per frame
