@@ -27,6 +27,16 @@ public class ChosenCharacter : MonoBehaviour
         {
             PlayerList.instance.SetCharacter4();
         }
+
+        if (PlayerList.instance.chosenChar == "Tarkan")
+        {
+            PlayerList.instance.SetCharacter5();
+        }
+
+        if (PlayerList.instance.chosenChar == "Kivanc")
+        {
+            PlayerList.instance.SetCharacter6();
+        }
     }
 
     // Update is called once per frame
