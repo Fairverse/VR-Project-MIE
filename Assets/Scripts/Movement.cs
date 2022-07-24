@@ -43,8 +43,8 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //var language = new Windows.Globalization.Language("tr"); //gerekli deðil
-        //var recognizer = new SpeechRecognizer(language); //gerekli deðil
+        //var language = new Windows.Globalization.Language("tr"); //gerekli deï¿½il
+        //var recognizer = new SpeechRecognizer(language); //gerekli deï¿½il
 
         
 
@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
         actions.Add("sol", Left);
         actions.Add("hey", Wave);
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
-        actions.Add("dounce", Dance);
+        actions.Add("party", Dance);
         actions.Add("kosh", Run);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
