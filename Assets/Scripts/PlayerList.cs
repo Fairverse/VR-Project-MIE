@@ -36,7 +36,7 @@ public class PlayerList : MonoBehaviour
         GameManager.instance.UI.ccPanel.SetActive(false);
         GameManager.instance.Movement.enabled = true;
         
-        PlayerPrefs.SetString(chosenChar, "Gozde");
+        PlayerPrefs.SetString(chosenChar, "Enes");
 
     }
 
@@ -49,7 +49,33 @@ public class PlayerList : MonoBehaviour
         GameManager.instance.UI.ccPanel.SetActive(false);
         GameManager.instance.Movement.enabled = true;
         
-        PlayerPrefs.SetString(chosenChar, "NPC");
+        PlayerPrefs.SetString(chosenChar, "Reyhan");
+
+    }
+
+    public void SetCharacter3()
+    {
+        Movement.instance.player = CharacterList[2].transform;
+        GameManager.instance.vcam1.Follow = CharacterList[2].transform;
+        GameManager.instance.vcam2.Follow = CharacterList[2].transform;
+        CharacterList[2].SetActive(true);
+        GameManager.instance.UI.ccPanel.SetActive(false);
+        GameManager.instance.Movement.enabled = true;
+
+        PlayerPrefs.SetString(chosenChar, "Hakkican");
+
+    }
+
+    public void SetCharacter4()
+    {
+        Movement.instance.player = CharacterList[3].transform;
+        GameManager.instance.vcam1.Follow = CharacterList[3].transform;
+        GameManager.instance.vcam2.Follow = CharacterList[3].transform;
+        CharacterList[3].SetActive(true);
+        GameManager.instance.UI.ccPanel.SetActive(false);
+        GameManager.instance.Movement.enabled = true;
+
+        PlayerPrefs.SetString(chosenChar, "Hadise");
 
     }
 }

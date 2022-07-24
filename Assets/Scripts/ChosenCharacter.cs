@@ -8,14 +8,24 @@ public class ChosenCharacter : MonoBehaviour
     void Start()
     {
         PlayerList.instance.chosenChar = PlayerPrefs.GetString(PlayerList.instance.chosenChar);
-        if (PlayerList.instance.chosenChar == "Gozde")
+        if (PlayerList.instance.chosenChar == "Enes")
         {
             PlayerList.instance.SetCharacter1();
         }
 
-        if (PlayerList.instance.chosenChar == "NPC")
+        if (PlayerList.instance.chosenChar == "Reyhan")
         {
             PlayerList.instance.SetCharacter2();
+        }
+
+        if (PlayerList.instance.chosenChar == "Hakkican")
+        {
+            PlayerList.instance.SetCharacter3();
+        }
+
+        if (PlayerList.instance.chosenChar == "Hadise")
+        {
+            PlayerList.instance.SetCharacter4();
         }
     }
 
