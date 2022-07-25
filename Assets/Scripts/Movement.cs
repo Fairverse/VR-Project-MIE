@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -43,8 +44,8 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //var language = new Windows.Globalization.Language("tr"); //gerekli de�il
-        //var recognizer = new SpeechRecognizer(language); //gerekli de�il
+        //var language = new Windows.Globalization.Language("tr"); //gerekli değil
+        //var recognizer = new SpeechRecognizer(language); //gerekli değil
 
         
 
@@ -57,14 +58,13 @@ public class Movement : MonoBehaviour
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
         actions.Add("party", Dance);
         actions.Add("kosh", Run);
+        actions.Add("yup", Interaction);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
 
     }
-
-    
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
     {
@@ -246,5 +246,28 @@ public class Movement : MonoBehaviour
         }
 
         GameManager.instance.IncreaseCoin();
+    }
+
+    public void Interaction()
+    {
+        if (GameManager.instance.SceneTrigger.isAvaiableForInteraction)
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+                SceneManager.LoadScene(1);
+
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+                SceneManager.LoadScene(0);
+        }
+
+        if (TrampolineTrigger.instance.isAvaiableForInteraction)
+        {
+            player.transform.position = TrampolineTrigger.instance.trampolinePlace.position;
+            player.GetComponentInParent<Movement>().enabled = false;
+            player.transform.eulerAngles = new Vector3(0, -150, 0);
+            GameManager.instance.UI.interactionPanel.SetActive(false);
+        }
+
+        else
+            Debug.Log("nope");
     }
 }

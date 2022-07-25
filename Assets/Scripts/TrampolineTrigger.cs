@@ -9,6 +9,15 @@ public class TrampolineTrigger : MonoBehaviour
     public bool isPressE;
     public bool isAvaiableForInteraction;
 
+    #region Singleton
+    public static TrampolineTrigger instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {

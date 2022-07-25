@@ -4029,7 +4029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15eedf333bbaf2b429754d5e9e90bf39, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8238a33d5ceacb4b9b366c7b9f37969, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10945,7 +10945,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "e" to interact
+  m_Text: "Etkile\u015Fim i\xE7in \"yap\" deyiniz."
 --- !u!222 &914493989
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15539,7 +15539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315413564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.15, y: -0.7, z: 56.26}
+  m_LocalPosition: {x: 9.23, y: -0.7, z: 46.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1880755177}
@@ -27950,6 +27950,7 @@ MonoBehaviour:
   UI: {fileID: 526132999}
   Movement: {fileID: 1394092534}
   AudioManager: {fileID: 1022274214}
+  SceneTrigger: {fileID: 1806405785}
   vcam1: {fileID: 7108457822824613721}
   vcam2: {fileID: 7108457822361923910}
 --- !u!33 &3791912424026958858
