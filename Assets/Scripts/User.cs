@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 
@@ -121,5 +122,25 @@ public class User : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){}
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(LoadAsyncScene("Kaydol"));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            StartCoroutine(LoadAsyncScene("Giris"));
+        }
+    }
+
+    IEnumerator LoadAsyncScene(string sceneName)
+    {
+        // This is a coroutine
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }
