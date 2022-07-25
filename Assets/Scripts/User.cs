@@ -9,11 +9,29 @@ using System.Text.RegularExpressions;
 
 public class User : MonoBehaviour
 {
-    readonly string url = "http://localhost:8080/api/v1/registration";
+    static string url = "http://localhost:8080/api/v1/registration";
 
     public Text usernameText;
     public Text emailText;
     public Text passwordText;
+
+    public string id = "";
+    public string username = "";
+    public string email = "";
+    public int coin = 0;
+
+    public User(string id, string username, string email, string coin)
+    {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.coin = int.Parse(coin);
+    }
+
+    public string toString()
+    {
+        return "id: " + id + " username: " + username + " email: " + email + " coin: " + coin;
+    }
 
 
     // Start is called before the first frame update
@@ -49,8 +67,7 @@ public class User : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Get(url + "?email=" + email + "&password=" + password);
         yield return www.SendWebRequest();
 
-        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.
-        ProtocolError)
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
             printError(www.downloadHandler.text);
         }
@@ -61,11 +78,9 @@ public class User : MonoBehaviour
             string username = userStrSplit[0];
             email = userStrSplit[1];
             string id = userStrSplit[2];
-            Dictionary<string, string> user = new Dictionary<string, string>();
-            user.Add("username", username);
-            user.Add("mail", email);
-            user.Add("id", id);
-            print("user: " + JsonConvert.SerializeObject(user));
+            string coin = userStrSplit[3];
+            User user = new User(id, username, email, coin);
+            Debug.Log("user: " + user.toString());
         }
     }
 
