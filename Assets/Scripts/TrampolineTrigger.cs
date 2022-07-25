@@ -67,7 +67,7 @@ public class TrampolineTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !isAvaiableForInteraction)
+        if (other.CompareTag("Player") && isAvaiableForInteraction)
         {
             isAvaiableForInteraction = false;
             GameManager.instance.UI.interactionPanel.SetActive(false);
