@@ -51,7 +51,7 @@ public class TrampolineTrigger : MonoBehaviour
         {
             GameManager.instance.Movement.player.transform.position = trampolinePlace.position;
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
-            GameManager.instance.Movement.player.transform.eulerAngles = new Vector3(0, -150, 0);
+            GameManager.instance.Movement.player.transform.eulerAngles = trampolinePlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
         }
     }
