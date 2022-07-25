@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 81038017}
   - component: {fileID: 81038016}
   m_Layer: 5
-  m_Name: Password Text
+  m_Name: PasswordText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 1428258797}
   - component: {fileID: 1428258798}
   m_Layer: 5
-  m_Name: Text
+  m_Name: UsernameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,9 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4df0a65e173bf45acf3ca62ab29343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: {fileID: 1428258798}
-  email: {fileID: 1923043646}
-  password: {fileID: 81038016}
+  usernameText: {fileID: 1428258798}
+  emailText: {fileID: 1923043646}
+  passwordText: {fileID: 81038016}
 --- !u!4 &1446625013
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ GameObject:
   - component: {fileID: 1923043647}
   - component: {fileID: 1923043646}
   m_Layer: 5
-  m_Name: Email Text
+  m_Name: EmailText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
