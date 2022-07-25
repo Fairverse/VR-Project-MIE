@@ -40,12 +40,11 @@ public class SceneTrigger : MonoBehaviour
 
         if (isPressE && isAvaiableForInteraction)
         {
-            if (SceneManager.GetActiveScene () == SceneManager.GetSceneByBuildIndex (0)) 
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
                 SceneManager.LoadScene(1);
 
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
                 SceneManager.LoadScene(0);
-
         }
     }
 

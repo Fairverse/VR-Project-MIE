@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public UI UI;
     public Movement Movement;
     public AudioManager AudioManager;
+    public SceneTrigger SceneTrigger;
 
     [Header("Cameras")]
 

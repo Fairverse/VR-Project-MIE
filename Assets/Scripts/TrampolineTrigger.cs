@@ -9,6 +9,15 @@ public class TrampolineTrigger : MonoBehaviour
     public bool isPressE;
     public bool isAvaiableForInteraction;
 
+    #region Singleton
+    public static TrampolineTrigger instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +51,7 @@ public class TrampolineTrigger : MonoBehaviour
         {
             GameManager.instance.Movement.player.transform.position = trampolinePlace.position;
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
-            GameManager.instance.Movement.player.transform.eulerAngles = new Vector3(0, -150, 0);
+            GameManager.instance.Movement.player.transform.eulerAngles = trampolinePlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
         }
     }
@@ -58,7 +67,7 @@ public class TrampolineTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !isAvaiableForInteraction)
+        if (other.CompareTag("Player") && isAvaiableForInteraction)
         {
             isAvaiableForInteraction = false;
             GameManager.instance.UI.interactionPanel.SetActive(false);

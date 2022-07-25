@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -43,28 +44,27 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //var language = new Windows.Globalization.Language("tr"); //gerekli deðil
-        //var recognizer = new SpeechRecognizer(language); //gerekli deðil
+        //var language = new Windows.Globalization.Language("tr"); //gerekli deÄŸil
+        //var recognizer = new SpeechRecognizer(language); //gerekli deÄŸil
 
         
 
         //playerAnimator = player.GetComponent<Animator>();   
         actions.Add("marsh", Forward);
-        actions.Add("dön", Back);
+        actions.Add("done", Back);
         actions.Add("saw", Right);
         actions.Add("sol", Left);
         actions.Add("hey", Wave);
         actions.Add("menu", GameManager.instance.OpenMenuPanel);
-        actions.Add("dance", Dance);
+        actions.Add("party", Dance);
         actions.Add("kosh", Run);
+        actions.Add("yup", Interaction);
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
 
     }
-
-    
 
     private void RecognizedSpeech(PhraseRecognizedEventArgs speech)
     {
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
                 StartCoroutine(RunForward());
         }
 
-        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandalý") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbastý"))
+        if (player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Harmandali") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Gangnam") || player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Kolbasti"))
         {
             GameManager.instance.vcam2.Priority = 11;
         }
@@ -202,8 +202,7 @@ public class Movement : MonoBehaviour
 
     public void Run()
     {
-        if(canRun)
-            StartCoroutine(RunForward());
+        StartCoroutine(RunForward());
     }
 
     public void Wave()
@@ -221,7 +220,7 @@ public class Movement : MonoBehaviour
 
         if (danceNum == 0)
         {
-            player.GetComponent<Animator>().SetTrigger("Kolbastý");
+            player.GetComponent<Animator>().SetTrigger("Kolbasti");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.kolbasti;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
@@ -239,7 +238,7 @@ public class Movement : MonoBehaviour
 
         else if(danceNum == 2)
         {
-            player.GetComponent<Animator>().SetTrigger("Harmandalý");
+            player.GetComponent<Animator>().SetTrigger("Harmandali");
 
             GameManager.instance.AudioManager.GetComponent<AudioSource>().clip = GameManager.instance.AudioManager.harmandali;
             GameManager.instance.AudioManager.GetComponent<AudioSource>().Play();
@@ -247,5 +246,29 @@ public class Movement : MonoBehaviour
         }
 
         GameManager.instance.IncreaseCoin();
+    }
+
+    public void Interaction()
+    {
+        if (GameManager.instance.SceneTrigger.isAvaiableForInteraction)
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+                SceneManager.LoadScene(1);
+
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+                SceneManager.LoadScene(0);
+        }
+
+        if (TrampolineTrigger.instance.isAvaiableForInteraction)
+        {
+            player.transform.position = TrampolineTrigger.instance.trampolinePlace.position;
+            player.GetComponentInParent<Movement>().enabled = false;
+            player.transform.eulerAngles = new Vector3(0, -150, 0);
+            GameManager.instance.UI.interactionPanel.SetActive(false);
+        }
+
+        else
+            Debug.Log("nope");
+
     }
 }
