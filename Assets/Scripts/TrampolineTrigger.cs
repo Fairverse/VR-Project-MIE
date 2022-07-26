@@ -53,6 +53,8 @@ public class TrampolineTrigger : MonoBehaviour
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
             GameManager.instance.Movement.player.transform.eulerAngles = trampolinePlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
+
+            StartCoroutine(Jump());
         }
     }
 
@@ -72,5 +74,32 @@ public class TrampolineTrigger : MonoBehaviour
             isAvaiableForInteraction = false;
             GameManager.instance.UI.interactionPanel.SetActive(false);
         }
+    }
+
+    public IEnumerator Jump()
+    {
+        yield return new WaitForSeconds(1);
+
+        GameManager.instance.Movement.player.transform.Translate(0, 1, 0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.Movement.player.transform.Translate(0, -1, 0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.Movement.player.transform.Translate(0, 1, 0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.Movement.player.transform.Translate(0, -1, 0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.Movement.player.transform.Translate(0, 1, 0);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.Movement.player.transform.Translate(0, -1, 0);
     }
 }
