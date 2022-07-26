@@ -29,7 +29,7 @@ namespace WebXR
             value = buttonValue;
         }
     }
-  
+
     public class WebXRController : MonoBehaviour
     {
         [Tooltip("Controller hand to use.")] public WebXRControllerHand hand = WebXRControllerHand.NONE;
@@ -271,7 +271,7 @@ namespace WebXR
         void Update()
         {
             // Use Unity XR Input when enabled. When using WebXR, updates are performed onControllerUpdate.
-            if (ExampleUtil.isPresent()) return;
+            if (!ExampleUtil.isPresent()) return;
             
             SetVisible(true);
 
