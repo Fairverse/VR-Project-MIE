@@ -269,6 +269,16 @@ public class Movement : MonoBehaviour
             StartCoroutine(TrampolineTrigger.instance.Jump());
         }
 
+        if (SwingTrigger.instance.isAvaiableForInteraction)
+        {
+            player.transform.position = SwingTrigger.instance.swingPlace.position;
+            player.GetComponentInParent<Movement>().enabled = false;
+            player.transform.eulerAngles = SwingTrigger.instance.swingPlace.eulerAngles;
+            GameManager.instance.UI.interactionPanel.SetActive(false);
+
+            StartCoroutine(SwingTrigger.instance.Swing());
+        }
+
         else
             Debug.Log("nope");
 

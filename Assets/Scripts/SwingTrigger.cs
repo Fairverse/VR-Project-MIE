@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class SwingTrigger : MonoBehaviour
 {
     public Transform swingPlace;
     public Transform charPos;
+    public CinemachineVirtualCamera swingCam;
 
     public Animator swingAnimator;
 
     public bool isPressE;
     public bool isAvaiableForInteraction;
+    public bool isSwing;
+
+    #region Singleton
+    public static SwingTrigger instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +50,22 @@ public class SwingTrigger : MonoBehaviour
             GameManager.instance.Movement.player.transform.eulerAngles = swingPlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
 
-            swingAnimator.enabled = true;
+            StartCoroutine(Swing());
+        }
+
+        if (isSwing)
+        {
+            GameManager.instance.UI.interactionPanel.SetActive(true);
+
+            if (isPressE)
+            {
+                GameManager.instance.Movement.enabled = true;
+                swingAnimator.SetBool("Swing", false);
+                swingCam.Priority = 8;
+                GameManager.instance.Movement.player.gameObject.SetActive(true);
+                isSwing = false;
+                GameManager.instance.UI.interactionPanel.SetActive(false);
+            }
         }
     }
 
@@ -58,5 +85,18 @@ public class SwingTrigger : MonoBehaviour
             isAvaiableForInteraction = false;
             GameManager.instance.UI.interactionPanel.SetActive(false);
         }
+    }
+
+    public IEnumerator Swing()
+    {
+        swingAnimator.SetBool("Swing", true);
+        swingCam.Priority = 12;
+        GameManager.instance.Movement.player.gameObject.SetActive(false);
+        GameManager.instance.Movement.player.position = charPos.position;
+        isAvaiableForInteraction = false;
+
+        yield return new WaitForSeconds(1);
+
+        isSwing = true;
     }
 }
