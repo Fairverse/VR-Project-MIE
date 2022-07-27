@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrampolineTrigger : MonoBehaviour
 {
     public Transform trampolinePlace;
+    public Transform charPos;
 
     public bool isPressE;
     public bool isAvaiableForInteraction;
@@ -101,5 +102,10 @@ public class TrampolineTrigger : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         GameManager.instance.Movement.player.transform.Translate(0, -1, 0);
+
+        yield return new WaitForSeconds(1);
+
+        GameManager.instance.Movement.player.transform.position = charPos.position;
+        GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = true;
     }
 }
