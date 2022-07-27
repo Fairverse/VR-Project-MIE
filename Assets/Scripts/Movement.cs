@@ -265,6 +265,8 @@ public class Movement : MonoBehaviour
             player.GetComponentInParent<Movement>().enabled = false;
             player.transform.eulerAngles = new Vector3(0, -150, 0);
             GameManager.instance.UI.interactionPanel.SetActive(false);
+
+            StartCoroutine(TrampolineTrigger.instance.Jump());
         }
 
         else
