@@ -7,6 +7,8 @@ public class SwingTrigger : MonoBehaviour
     public Transform swingPlace;
     public Transform charPos;
 
+    public Animator swingAnimator;
+
     public bool isPressE;
     public bool isAvaiableForInteraction;
 
@@ -35,6 +37,8 @@ public class SwingTrigger : MonoBehaviour
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
             GameManager.instance.Movement.player.transform.eulerAngles = swingPlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
+
+            swingAnimator.enabled = true;
         }
     }
 
