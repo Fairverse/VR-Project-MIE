@@ -279,6 +279,16 @@ public class Movement : MonoBehaviour
             StartCoroutine(SwingTrigger.instance.Swing());
         }
 
+        if (SwingTrigger.instance.isSwing)
+        {
+            GameManager.instance.Movement.enabled = true;
+            SwingTrigger.instance.swingAnimator.SetBool("Swing", false);
+            SwingTrigger.instance.swingCam.Priority = 8;
+            GameManager.instance.Movement.player.gameObject.SetActive(true);
+            SwingTrigger.instance.isSwing = false;
+            GameManager.instance.UI.interactionPanel.SetActive(false);
+        }
+
         else
             Debug.Log("nope");
 
