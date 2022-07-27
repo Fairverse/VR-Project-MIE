@@ -263,7 +263,7 @@ public class Movement : MonoBehaviour
         {
             player.transform.position = TrampolineTrigger.instance.trampolinePlace.position;
             player.GetComponentInParent<Movement>().enabled = false;
-            player.transform.eulerAngles = new Vector3(0, -150, 0);
+            player.transform.eulerAngles = TrampolineTrigger.instance.trampolinePlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
 
             StartCoroutine(TrampolineTrigger.instance.Jump());
@@ -271,7 +271,7 @@ public class Movement : MonoBehaviour
 
         if (SwingTrigger.instance.isAvaiableForInteraction)
         {
-            player.transform.position = SwingTrigger.instance.swingPlace.position;
+            player.transform.position = SwingTrigger.instance.charPos.position;
             player.GetComponentInParent<Movement>().enabled = false;
             player.transform.eulerAngles = SwingTrigger.instance.swingPlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);

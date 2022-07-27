@@ -45,7 +45,8 @@ public class SwingTrigger : MonoBehaviour
 
         if (isPressE && isAvaiableForInteraction)
         {
-            GameManager.instance.Movement.player.transform.position = swingPlace.position;
+            Debug.Log("þu an");
+            GameManager.instance.Movement.player.transform.position = charPos.position;
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
             GameManager.instance.Movement.player.transform.eulerAngles = swingPlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
