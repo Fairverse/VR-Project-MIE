@@ -1,29 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
-public class SwingTrigger : MonoBehaviour
+public class NPCTrigger : MonoBehaviour
 {
-    public Transform swingPlace;
-    public Transform charPos;
-    public CinemachineVirtualCamera swingCam;
-
-    public Animator swingAnimator;
+    public int questionOrder;
 
     public bool isPressE;
     public bool isAvaiableForInteraction;
-    public bool isSwing;
+
+    public Transform charPos;
+
+    public GameObject NPC;
 
     #region Singleton
-    public static SwingTrigger instance;
+    public static NPCTrigger instance;
 
     private void Awake()
     {
         instance = this;
     }
     #endregion
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,26 +43,11 @@ public class SwingTrigger : MonoBehaviour
         if (isPressE && isAvaiableForInteraction)
         {
             GameManager.instance.Movement.player.transform.position = charPos.position;
+            GameManager.instance.Movement.player.transform.eulerAngles = charPos.eulerAngles;
             GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = false;
-            GameManager.instance.Movement.player.transform.eulerAngles = swingPlace.eulerAngles;
             GameManager.instance.UI.interactionPanel.SetActive(false);
 
-            StartCoroutine(Swing());
-        }
-
-        if (isSwing)
-        {
-            GameManager.instance.UI.interactionPanel.SetActive(true);
-
-            if (isPressE)
-            {
-                GameManager.instance.Movement.enabled = true;
-                swingAnimator.SetBool("Swing", false);
-                swingCam.Priority = 8;
-                GameManager.instance.Movement.player.gameObject.SetActive(true);
-                isSwing = false;
-                GameManager.instance.UI.interactionPanel.SetActive(false);
-            }
+            AskQuestion();
         }
     }
 
@@ -87,16 +69,39 @@ public class SwingTrigger : MonoBehaviour
         }
     }
 
-    public IEnumerator Swing()
+    public void AskQuestion()
     {
-        swingAnimator.SetBool("Swing", true);
-        swingCam.Priority = 12;
-        GameManager.instance.Movement.player.gameObject.SetActive(false);
-        GameManager.instance.Movement.player.position = charPos.position;
-        isAvaiableForInteraction = false;
+        NPC.GetComponent<Questions>().questionPanel.SetActive(true);
+        
+        if (questionOrder == 0)
+        {
+            NPC.GetComponent<Questions>().Q2.SetActive(false);
+            NPC.GetComponent<Questions>().Q3.SetActive(false);
 
-        yield return new WaitForSeconds(1);
+            NPC.GetComponent<Questions>().Q1.SetActive(true);
+        }
 
-        isSwing = true;
+        if (questionOrder == 1)
+        {
+            NPC.GetComponent<Questions>().Q1.SetActive(false);
+            NPC.GetComponent<Questions>().Q3.SetActive(false);
+
+            NPC.GetComponent<Questions>().Q2.SetActive(true);
+        }
+
+        if (questionOrder == 2)
+        {
+            NPC.GetComponent<Questions>().Q1.SetActive(false);
+            NPC.GetComponent<Questions>().Q2.SetActive(false);
+
+            NPC.GetComponent<Questions>().Q3.SetActive(true);
+        }
+
+    }
+
+    public void FinishQuestion()
+    {
+        NPC.GetComponent<Questions>().questionPanel.SetActive(false);
+        GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = true;
     }
 }
