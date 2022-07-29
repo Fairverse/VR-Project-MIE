@@ -15,7 +15,10 @@ public class Questions : MonoBehaviour
     public GameObject Q2;
     public GameObject Q3;
 
+
     public enum AnswerButton { Right, Left};
+
+    [Header("Correct Answers")]
     public AnswerButton correctAnswer1;
     public AnswerButton correctAnswer2;
     public AnswerButton correctAnswer3;
@@ -34,97 +37,121 @@ public class Questions : MonoBehaviour
 
     public void AnswerLeftButton()
     {
-        if (Q1.activeInHierarchy && correctAnswer1 == AnswerButton.Left)
+        if (Q1.activeInHierarchy)
         {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
+            if (correctAnswer1 == AnswerButton.Left)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
+
+            else
+            {
+                GetComponent<AudioSource>().clip = Q1Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso1");
+            }
         }
 
-        else
+        if (Q2.activeInHierarchy)
         {
-            GetComponent<AudioSource>().clip = Q1Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
+            if (correctAnswer2 == AnswerButton.Left)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
+
+            else
+            {
+                GetComponent<AudioSource>().clip = Q2Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso2");
+            }
         }
 
-        if (Q2.activeInHierarchy && correctAnswer2 == AnswerButton.Left)
+        if (Q3.activeInHierarchy)
         {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
-        }
+            if (correctAnswer3 == AnswerButton.Left)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
 
-        else
-        {
-            GetComponent<AudioSource>().clip = Q2Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
-        }
-
-        if (Q3.activeInHierarchy && correctAnswer3 == AnswerButton.Left)
-        {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
-        }
-
-        else
-        {
-            GetComponent<AudioSource>().clip = Q3Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
+            else
+            {
+                GetComponent<AudioSource>().clip = Q3Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso3");
+            }
         }
     }
     
     public void AnswerRightButton()
     {
-        if (Q1.activeInHierarchy && correctAnswer1 == AnswerButton.Right)
+        if (Q1.activeInHierarchy)
         {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
+            if (correctAnswer1 == AnswerButton.Right)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
+
+            else
+            {
+                GetComponent<AudioSource>().clip = Q1Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso1");
+            }
         }
 
-        else
+        if (Q2.activeInHierarchy)
         {
-            GetComponent<AudioSource>().clip = Q1Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
+            if (correctAnswer2 == AnswerButton.Right)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
+
+            else
+            {
+                GetComponent<AudioSource>().clip = Q2Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso2");
+            }
         }
 
-        if (Q2.activeInHierarchy && correctAnswer2 == AnswerButton.Right)
+        if (Q3.activeInHierarchy)
         {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
-        }
+            if (correctAnswer3 == AnswerButton.Right)
+            {
+                Debug.Log("corretto");
+                NPCTrigger.instance.questionOrder++;
+                NPCTrigger.instance.FinishQuestion();
+                GameManager.instance.coinCount += 20;
+            }
 
-        else
-        {
-            GetComponent<AudioSource>().clip = Q2Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
-        }
-
-        if (Q3.activeInHierarchy && correctAnswer3 == AnswerButton.Right)
-        {
-            Debug.Log("corretto");
-            NPCTrigger.instance.questionOrder++;
-            NPCTrigger.instance.FinishQuestion();
-        }
-
-        else
-        {
-            GetComponent<AudioSource>().clip = Q3Audio;
-            GetComponent<AudioSource>().Play();
-            NPCTrigger.instance.FinishQuestion();
-            Debug.Log("falso");
+            else
+            {
+                GetComponent<AudioSource>().clip = Q3Audio;
+                GetComponent<AudioSource>().Play();
+                NPCTrigger.instance.FinishQuestion();
+                Debug.Log("falso3");
+            }
         }
     }
 }

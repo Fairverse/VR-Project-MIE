@@ -289,6 +289,16 @@ public class Movement : MonoBehaviour
             GameManager.instance.UI.interactionPanel.SetActive(false);
         }
 
+        if (NPCTrigger.instance.isAvaiableForInteraction)
+        {
+            player.transform.position = NPCTrigger.instance.charPos.position;
+            player.transform.eulerAngles = NPCTrigger.instance.charPos.eulerAngles;
+            player.GetComponentInParent<Movement>().enabled = false;
+            GameManager.instance.UI.interactionPanel.SetActive(false);
+
+            NPCTrigger.instance.AskQuestion();
+        }
+
         else
             Debug.Log("nope");
 
