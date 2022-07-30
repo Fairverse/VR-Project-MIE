@@ -972,7 +972,7 @@ MonoBehaviour:
   Q3: {fileID: 795355665}
   correctAnswer1: 1
   correctAnswer2: 0
-  correctAnswer3: 1
+  correctAnswer3: 0
 --- !u!82 &24404678
 AudioSource:
   m_ObjectHideFlags: 0
