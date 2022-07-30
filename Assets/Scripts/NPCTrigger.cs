@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCTrigger : MonoBehaviour
 {
+    public GameObject Buttons;
+
     public int questionOrder;
 
     public bool isPressE;
@@ -72,6 +74,7 @@ public class NPCTrigger : MonoBehaviour
     public void AskQuestion()
     {
         NPC.GetComponent<Questions>().questionPanel.SetActive(true);
+        Buttons.SetActive(true);
         
         if (questionOrder == 0)
         {
@@ -103,5 +106,10 @@ public class NPCTrigger : MonoBehaviour
     {
         NPC.GetComponent<Questions>().questionPanel.SetActive(false);
         GameManager.instance.Movement.player.GetComponentInParent<Movement>().enabled = true;
+        Buttons.SetActive(false);
+
+        NPC.GetComponent<Questions>().Q1.SetActive(false);
+        NPC.GetComponent<Questions>().Q2.SetActive(false);
+        NPC.GetComponent<Questions>().Q3.SetActive(false);
     }
 }
