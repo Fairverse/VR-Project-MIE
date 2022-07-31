@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     {
         UI.menuPanel.SetActive(UI.isMenuActive);
         UI.isMenuActive = !UI.isMenuActive;
+        UI.commandsPanel.SetActive(false);
+        UI.tasksPanel.SetActive(false);
     }
 
     public void SetCharacter()

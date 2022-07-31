@@ -14,6 +14,8 @@ public class UI : MonoBehaviour
     public GameObject menuPanel;
     public GameObject ccPanel;
     public GameObject interactionPanel;
+    public GameObject tasksPanel;
+    public GameObject commandsPanel;
 
     [Header("Texts")]
 
@@ -29,5 +31,17 @@ public class UI : MonoBehaviour
     void Update()
     {
         coinText.text = GameManager.instance.coinCount.ToString();
+    }
+
+    public void Tasks()
+    {
+        menuPanel.SetActive(false);
+        tasksPanel.SetActive(true);
+    }
+
+    public void Commands()
+    {
+        menuPanel.SetActive(false);
+        commandsPanel.SetActive(true);
     }
 }
