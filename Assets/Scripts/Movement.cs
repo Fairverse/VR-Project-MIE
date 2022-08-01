@@ -209,7 +209,7 @@ public class Movement : MonoBehaviour
     {
         player.GetComponent<Animator>().SetTrigger("Waving");
 
-        GameManager.instance.IncreaseCoin();
+        GameManager.instance.IncreaseCoin(5);
     }
 
     public void Dance()
@@ -245,7 +245,7 @@ public class Movement : MonoBehaviour
             danceNum = 0;
         }
 
-        GameManager.instance.IncreaseCoin();
+        GameManager.instance.IncreaseCoin(5);
     }
 
     public void Interaction()

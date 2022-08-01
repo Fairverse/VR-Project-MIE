@@ -963,6 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c92b4b3eb20814a9c3033935b12fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCTrigger: {fileID: 1681939731}
   Q1Audio: {fileID: 8300000, guid: 1596f0ec30815d8469e68f11790ac936, type: 3}
   Q2Audio: {fileID: 8300000, guid: 3ae35a824c05cba449754105720186f9, type: 3}
   Q3Audio: {fileID: 8300000, guid: 884e9dc04fbf5714db543a1bbeff4244, type: 3}
@@ -28653,6 +28654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c92b4b3eb20814a9c3033935b12fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCTrigger: {fileID: 1571094206}
   Q1Audio: {fileID: 8300000, guid: 2419bd60aad9a2748805daea605808f7, type: 3}
   Q2Audio: {fileID: 8300000, guid: 2419bd60aad9a2748805daea605808f7, type: 3}
   Q3Audio: {fileID: 8300000, guid: fdaa49a79261e0d4690f5dce915e7e87, type: 3}
@@ -28703,8 +28705,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549112613}
-  m_LocalRotation: {x: -0, y: 0.91693944, z: -0, w: 0.39902636}
-  m_LocalPosition: {x: -10.458641, y: -1, z: 60.58181}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -10.458645, y: -1, z: 60.58181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 193251053}
@@ -28721,7 +28723,7 @@ Transform:
   - {fileID: 356422232}
   m_Father: {fileID: 0}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 132.965, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1551092018
 PrefabInstance:
   m_ObjectHideFlags: 0

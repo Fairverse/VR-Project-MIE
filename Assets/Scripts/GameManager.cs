@@ -62,9 +62,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("char");
     }
-    public void IncreaseCoin()
+    public void IncreaseCoin(int value)
     {
-        coinCount++;
+        coinCount += value;
 
         PlayerPrefs.SetInt("coinCount", coinCount);
     }

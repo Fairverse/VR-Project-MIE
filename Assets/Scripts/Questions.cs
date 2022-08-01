@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Questions : MonoBehaviour
 {
+    public NPCTrigger NPCTrigger;
+
     public AudioClip Q1Audio;
     public AudioClip Q2Audio;
     public AudioClip Q3Audio;
@@ -42,16 +44,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer1 == AnswerButton.Left)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q1Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso1");
             }
         }
@@ -61,16 +63,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer2 == AnswerButton.Left)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q2Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso2");
             }
         }
@@ -80,16 +82,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer3 == AnswerButton.Left)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q3Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso3");
             }
         }
@@ -102,16 +104,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer1 == AnswerButton.Right)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q1Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso1");
             }
         }
@@ -121,16 +123,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer2 == AnswerButton.Right)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q2Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso2");
             }
         }
@@ -140,16 +142,16 @@ public class Questions : MonoBehaviour
             if (correctAnswer3 == AnswerButton.Right)
             {
                 Debug.Log("corretto");
-                NPCTrigger.instance.questionOrder++;
-                NPCTrigger.instance.FinishQuestion();
-                GameManager.instance.coinCount += 20;
+                NPCTrigger.questionOrder++;
+                NPCTrigger.FinishQuestion();
+                GameManager.instance.IncreaseCoin(20);
             }
 
             else
             {
                 GetComponent<AudioSource>().clip = Q3Audio;
                 GetComponent<AudioSource>().Play();
-                NPCTrigger.instance.FinishQuestion();
+                NPCTrigger.FinishQuestion();
                 Debug.Log("falso3");
             }
         }
