@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 674524234}
   m_CameraFloorOffsetObject: {fileID: 71416991}
   m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
+  m_CameraYOffset: 0
 --- !u!4 &674524236
 Transform:
   m_ObjectHideFlags: 0
@@ -2726,8 +2726,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674524234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.994232, y: 12.326281, z: 22.198093}
+  m_LocalRotation: {x: 0, y: 0, z: 2.664535e-15, w: 1}
+  m_LocalPosition: {x: -3.4, y: 1.4979999, z: 0.86599994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71416992}
@@ -3635,8 +3635,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0, y: -0, z: 2.664535e-15, w: 1}
-  m_LocalPosition: {x: 0.59423184, y: -10.82828, z: -21.332094}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 71416992}
@@ -3714,12 +3714,12 @@ MonoBehaviour:
       m_Name: Position
       m_Type: 0
       m_ExpectedControlType: Vector3
-      m_Id: 
+      m_Id: 012e8518-f452-41eb-998d-7565a4450dd1
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 
+        m_Id: 5e331fdd-6542-4a40-9dc3-047fa8504bf6
         m_Path: <XRHMD>/centerEyePosition
         m_Interactions: 
         m_Processors: 
@@ -3734,12 +3734,12 @@ MonoBehaviour:
       m_Name: Rotation
       m_Type: 0
       m_ExpectedControlType: Quaternion
-      m_Id: 
+      m_Id: 9ded2568-a2e5-4d37-8990-a843b2de8c09
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 
+        m_Id: ecc3ee46-ccd3-4bb3-b8c8-adcef531b407
         m_Path: <XRHMD>/centerEyeRotation
         m_Interactions: 
         m_Processors: 
