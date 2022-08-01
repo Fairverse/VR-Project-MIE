@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenMenuPanel()
     {
-        UI.menuPanel.SetActive(UI.isMenuActive);
+        UI.menuPanel.SetActive(!UI.isMenuActive);
         UI.isMenuActive = !UI.isMenuActive;
         UI.commandsPanel.SetActive(false);
         UI.tasksPanel.SetActive(false);
