@@ -8,12 +8,6 @@ public class SceneTrigger : MonoBehaviour
     public bool isPressE;
     public bool isAvaiableForInteraction;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -27,16 +21,6 @@ public class SceneTrigger : MonoBehaviour
         {
             isPressE = false;
         }
-
-        /*if (isAvaiableForInteraction)
-        {
-            GameManager.instance.UI.interactionPanel.SetActive(true);
-        }
-
-        else
-        {
-            GameManager.instance.UI.interactionPanel.SetActive(false);
-        }*/
 
         if (isPressE && isAvaiableForInteraction)
         {

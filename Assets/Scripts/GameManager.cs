@@ -29,12 +29,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -42,7 +36,6 @@ public class GameManager : MonoBehaviour
         {
             OpenMenuPanel();
         }
-        //Debug.Log(PlayerPrefs.GetString(PlayerList.instance.chosenChar));
     }
 
     public void PressButton()
