@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Garden.unity
     guid: e7cc18f5e1b8e3c47bf4bcb5e1b3fb05
+  - enabled: 1
+    path: Assets/Scenes/Nature.unity
+    guid: 8e938b6819ff1f64aa800c7635922def
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

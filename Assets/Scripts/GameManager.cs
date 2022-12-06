@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Movement Movement;
     public AudioManager AudioManager;
     public SceneTrigger SceneTrigger;
+    public NatureTrigger NatureTrigger;
 
     [Header("Cameras")]
 

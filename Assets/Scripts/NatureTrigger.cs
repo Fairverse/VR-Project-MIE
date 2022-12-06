@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTrigger : MonoBehaviour
+public class NatureTrigger: MonoBehaviour
 {
     public bool isPressE;
     public bool isAvaiableForInteraction;
@@ -24,11 +24,11 @@ public class SceneTrigger : MonoBehaviour
 
         if (isPressE && isAvaiableForInteraction)
         {
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
-                SceneManager.LoadScene(1);
-
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(2);
+
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
+                SceneManager.LoadScene(1);
           
             
         }
